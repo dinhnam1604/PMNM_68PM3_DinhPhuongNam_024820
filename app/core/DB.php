@@ -16,6 +16,6 @@
                 echo "Connection failed: " . $e -> getMessage();
             }
             return $self -> conn;
-        }
+        }  
     }
 ?>
