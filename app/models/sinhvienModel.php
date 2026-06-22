@@ -21,8 +21,8 @@
             return $stmt -> fetch(PDO::FETCH_ASSOC);
         }
 
-        public function createSinhvien($mssv, $hoten, $gioitinh) {
-            $query = "INSERT INTO sinhvien (mssv, hoten, gioitinh) VALUES (:mssv, :hoten, :gioitinh)";
+        public function createSinhvien($mssv, $hoten, $gioitinh, $malop = '') {
+            $query = "INSERT INTO sinhvien (mssv, hoten, gioitinh, malop) VALUES (:mssv, :hoten, :gioitinh, :malop)";
             $stmt = $this -> conn -> prepare($query);
             $stmt -> bindParam(':mssv', $mssv);
             $stmt -> bindParam(':hoten', $hoten);
@@ -30,8 +30,8 @@
             return $stmt -> execute();
         }
 
-        public function updateSinhvien($id, $mssv, $hoten, $gioitinh) {
-            $query = "UPDATE sinhvien SET mssv = :mssv, hoten = :hoten, gioitinh = :gioitinh WHERE id = :id";
+        public function updateSinhvien($id, $mssv, $hoten, $gioitinh, $malop = '') {
+            $query = "UPDATE sinhvien SET mssv = :mssv, hoten = :hoten, gioitinh = :gioitinh, malop = :malop WHERE id = :id";
             $stmt = $this -> conn -> prepare($query);
             $stmt -> bindParam(':mssv', $mssv);
             $stmt -> bindParam(':hoten', $hoten);
