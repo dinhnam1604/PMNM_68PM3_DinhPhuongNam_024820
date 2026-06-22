@@ -31,7 +31,18 @@
             return $stmt -> execute();
         }
 
-        public function updateSinhvien($id, $mssv, $hoten, $gioitinh, $malop = '') {
+
+
+
+
+        public function deleteSinhvien($id) {
+            $query = "DELETE FROM sinhvien WHERE id = :id";
+            $stmt = $this -> conn -> prepare($query);
+            $stmt -> bindParam(':id', $id, PDO::PARAM_INT);
+            return $stmt -> execute();
+        }
+
+                public function updateSinhvien($id, $mssv, $hoten, $gioitinh, $malop = '') {
             $query = "UPDATE sinhvien SET mssv = :mssv, hoten = :hoten, gioitinh = :gioitinh, malop = :malop WHERE id = :id";
             $stmt = $this -> conn -> prepare($query);
             $stmt -> bindParam(':mssv', $mssv);
@@ -42,12 +53,7 @@
             return $stmt -> execute();
         }
 
-        public function deleteSinhvien($id) {
-            $query = "DELETE FROM sinhvien WHERE id = :id";
-            $stmt = $this -> conn -> prepare($query);
-            $stmt -> bindParam(':id', $id, PDO::PARAM_INT);
-            return $stmt -> execute();
-        }
+
 
         public function getPagingSinhVien($limit, $offset, $search = '') {
             $query = "SELECT * FROM sinhvien WHERE hoten LIKE :search LIMIT :limit OFFSET :offset";
