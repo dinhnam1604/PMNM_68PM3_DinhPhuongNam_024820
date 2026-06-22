@@ -27,6 +27,7 @@
             $stmt -> bindParam(':mssv', $mssv);
             $stmt -> bindParam(':hoten', $hoten);
             $stmt -> bindParam(':gioitinh', $gioitinh);
+            $stmt -> bindParam(':malop', $malop);
             return $stmt -> execute();
         }
 
@@ -36,6 +37,7 @@
             $stmt -> bindParam(':mssv', $mssv);
             $stmt -> bindParam(':hoten', $hoten);
             $stmt -> bindParam(':gioitinh', $gioitinh);
+            $stmt -> bindParam(':malop', $malop);
             $stmt -> bindParam(':id', $id, PDO::PARAM_INT);
             return $stmt -> execute();
         }
